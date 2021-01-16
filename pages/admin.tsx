@@ -1,6 +1,18 @@
 import DashboardLayout from '../components/layouts/admin'
 import Head from 'next/head'
+import { genDataMock, mockOptions } from '../components/datas/mockchart'
+import React, { useEffect, useState } from 'react'
+import { Bar } from 'react-chartjs-2'
+
 const Layout = () => {
+  const [data, setData] = useState(genDataMock())
+
+  useEffect(() => {
+    const interval = setInterval(() => setData(genDataMock()), 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <>
       <Head>
@@ -18,7 +30,7 @@ const Layout = () => {
                     fill="none"
                     className="h-8 w-8 text-white"
                     viewBox="0 0 28 30"
-                  > 
+                  >
                     <path
                       fill="currentColor"
                       d="M18.2 9.089c0 2.448-1.88 4.433-4.2 4.433-2.32 0-4.2-1.985-4.2-4.433 0-2.449 1.88-4.433 4.2-4.433 2.32 0 4.2 1.984 4.2 4.433zM25.2 12.044c0 1.633-1.254 2.956-2.8 2.956-1.546 0-2.8-1.323-2.8-2.956 0-1.632 1.254-2.955 2.8-2.955 1.546 0 2.8 1.323 2.8 2.955zM19.6 22.389c0-3.265-2.507-5.911-5.6-5.911-3.093 0-5.6 2.646-5.6 5.91v4.434h11.2V22.39zM8.4 12.044C8.4 13.677 7.146 15 5.6 15c-1.546 0-2.8-1.323-2.8-2.956 0-1.632 1.254-2.955 2.8-2.955 1.546 0 2.8 1.323 2.8 2.955zM22.4 26.822V22.39c0-1.558-.38-3.022-1.049-4.294.335-.091.687-.14 1.049-.14 2.32 0 4.2 1.985 4.2 4.434v4.433h-4.2zM6.649 18.095A9.214 9.214 0 005.6 22.389v4.433H1.4V22.39c0-2.449 1.88-4.433 4.2-4.433.362 0 .714.048 1.049.139z"
@@ -77,6 +89,12 @@ const Layout = () => {
                   <h4 className="text-2xl font-semibold text-gray-700">234,676</h4>
                   <div className="text-gray-500">Available Products</div>
                 </div>
+              </div>
+            </div>
+
+            <div className="w-full px-6 sm:w-1/2 xl:w-1/3 mt-6">
+              <div className="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
+                <Bar data={data} options={mockOptions} />
               </div>
             </div>
           </div>
