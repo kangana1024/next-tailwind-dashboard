@@ -18,6 +18,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build --if-present
-      - run: pm2 -i 3 start npm run --name "demoadmin" -- start
+      - run: pm2 -i 3 start npm --name "demoadmin" -- start
         env:
           CI: true
