@@ -1,4 +1,3 @@
-const { withPlugins } = require('next-compose-plugins')
 const withPWA = require("next-pwa")
 const prod = process.env.NODE_ENV === 'production'
 
@@ -24,12 +23,10 @@ const configs = {
 }
 
 
-module.exports = withPlugins([
-  withPWA({
-    pwa: {
-      disable: prod ? false : true,
-      dest: 'public'
-    }
-  }),
-  configs
-])
+module.exports = withPWA({
+  pwa: {
+    disable: prod ? false : true,
+    dest: 'public'
+  },
+  ...configs
+})
