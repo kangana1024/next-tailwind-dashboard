@@ -1,31 +1,23 @@
-const rand = () => Math.floor(Math.random() * 255)
-export const genDataMock = () => ({
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      type: 'line',
-      label: 'Dataset 1',
-      borderColor: `rgb(${rand()}, ${rand()}, ${rand()})`,
-      borderWidth: 2,
-      fill: false,
-      data: [rand(), rand(), rand(), rand(), rand(), rand()],
-    },
-    {
-      type: 'bar',
-      label: 'Dataset 2',
-      backgroundColor: `rgb(${rand()}, ${rand()}, ${rand()})`,
-      data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
-      borderColor: 'white',
-      borderWidth: 2,
-    },
-    {
-      type: 'bar',
-      label: 'Dataset 3',
-      backgroundColor: `rgb(${rand()}, ${rand()}, ${rand()})`,
-      data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
-    },
-  ],
-})
+export const genDataMock = [
+  {
+    name: 'Page A', uv: 590, pv: 800, amt: 1400,
+  },
+  {
+    name: 'Page B', uv: 868, pv: 967, amt: 1506,
+  },
+  {
+    name: 'Page C', uv: 1397, pv: 1098, amt: 989,
+  },
+  {
+    name: 'Page D', uv: 1480, pv: 1200, amt: 1228,
+  },
+  {
+    name: 'Page E', uv: 1520, pv: 1108, amt: 1100,
+  },
+  {
+    name: 'Page F', uv: 1400, pv: 680, amt: 1700,
+  },
+]
 
 export const mockOptions = {
   scales: {

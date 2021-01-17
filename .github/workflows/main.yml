@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm run build --if-present
+      - run: npm run build --if-present && pm2 delete "demoadmin"
       - run: pm2 -i 3 start npm --name "demoadmin" -- start
         env:
           CI: true

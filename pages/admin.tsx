@@ -1,17 +1,9 @@
 import DashboardLayout from '../components/layouts/admin'
 import Head from 'next/head'
-import { genDataMock, mockOptions } from '../components/datas/mockchart'
-import React, { useEffect, useState } from 'react'
-import { Bar } from 'react-chartjs-2'
+import React from 'react'
+import { VictoryPie } from 'victory'
 
 const Layout = () => {
-  const [data, setData] = useState(genDataMock())
-
-  useEffect(() => {
-    const interval = setInterval(() => setData(genDataMock()), 5000)
-
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <>
@@ -94,7 +86,7 @@ const Layout = () => {
 
             <div className="w-full px-6 sm:w-1/2 xl:w-1/3 mt-6">
               <div className="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
-                <Bar data={data} options={mockOptions} />
+                <VictoryPie />
               </div>
             </div>
           </div>
